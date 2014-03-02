@@ -2,7 +2,7 @@
 layout: post
 title: Hello, GitHub Pages
 category : geek
-tagline: "Supporting tagline"
+tagline: "oo"
 tags : [github, jekyll, jekyll-bootstrap]
 ---
 {% include JB/setup %}
@@ -22,10 +22,11 @@ GP最简单的用法如其[官网介绍](http://pages.github.com/)，用户可�
 
 在Install Jekyll-Bootstrap过程中，若碰到git push origin master错误，可以尝试使用
 
-    https://github.com/USERNAME/USERNAME.github.com.git
+`https://github.com/USERNAME/USERNAME.github.com.git`
+
 替换
 
-    git@github.com:USERNAME/USERNAME.github.com.git
+`git@github.com:USERNAME/USERNAME.github.com.git`
 
 #### Windows 7 环境下安装Jekyll
 在本地安装jekyll可以很方便地进行调试，像写代码一样写文章，是不是很酷？
@@ -44,18 +45,17 @@ GP最简单的用法如其[官网介绍](http://pages.github.com/)，用户可�
 
 * jekyll serve执行出错，可能是1.4.3版本本身的问题，参考[Jekyll - Error Running 'Jekyll Serve'](http://stackoverflow.com/questions/21137096/jekyll-error-running-jekyll-serve)执行：
     
-    gem uninstall jekyll
+    `gem uninstall jekyll`
 
-    gem install jekyll --version "=1.4.2"
+    `gem install jekyll --version "=1.4.2"`
 * cannot load such file -- wdm (LoadError) 解决方案：
     
-    gem install wdm
-
+    `gem install wdm`
 * 中文乱码问题 Liquid Exception: invalid byte sequence in GBK in 网上很多帖子的解决方案是改代码convertible.rb，个人觉得这么做很不雅，更合理的方法是：
 
-    修改配置文件_config.yml 添加 encoding: utf-8
+    修改配置文件_config.yml，添加 `encoding: utf-8`
 #### 个人碰到的悬而未解的问题
-* rake post title "中文" 导致出错
+* rake post title="中文" 导致出错
 
 
 
