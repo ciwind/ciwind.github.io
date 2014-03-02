@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Matplotlib, Installation and Usage"
-description: ""
-category: 
+description: "matplotlib的安装和使用"
+category: geek
 tags: [python, matplotlib, installation]
 ---
 {% include JB/setup %}
