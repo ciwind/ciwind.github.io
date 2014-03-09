@@ -30,3 +30,53 @@ tags: [python, matplotlib, installation]
 * ImportError: libpng16.so.16
 
       解决方案：export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+
+### 趋势图源码实例
+genTrendImg用于生产一个趋势图。
+
+    def genTrendImg(date_list, index_list, value_list_dict, img_dir, title = ''):
+        '''
+        @description:           创建趋势图，x是日期，y是量
+        @param date_list:       ['20131111', 20131112', ...]
+        @param index_list:      ((key11, key12, ... ), (key21, ... ), ...) 外层()的元素每个为一个子图，内层()每个对应一条折线
+        @param value_list_dict: {key1:[val1, val2, ...], key2:[val1, val2, ...]} value的维度与data_list一致
+        @param img_dir:         图片存放目录
+        @return:                返回生成的图片路径
+        '''
+
+        if not os.path.isdir(img_dir):
+            raise Exception("图片路径不存在：<%s>" % img_dir)
+       
+        # 创建一个含多个子图的趋势图
+        fig, axes = plt.subplots(len(index_list))
+        plt.subplots_adjust(hspace = 0.8)
+        for i in range(len(index_list)):
+            indexes = index_list[i]
+            ax = axes[i]
+            for index in indexes:
+                if index not in value_list_dict:
+                    continue
+                value_list = value_list_dict.get(index)
+                # 设置日期
+                ax.plot_date(datestr2num(date_list), value_list, '-', marker = '.', label = index)
+
+            # 设置x轴主/次标尺 最小单位1 最大单位2
+            ax.xaxis.set_major_locator(MultipleLocator(2))
+            ax.xaxis.set_minor_locator(MultipleLocator(1))
+
+            # 设置y轴主/次标尺（限定最大分隔数）
+            max_loc_num_y = 5 
+            ax.yaxis.set_major_locator(MaxNLocator(max_loc_num_y))
+            ax.yaxis.set_minor_locator(MaxNLocator(max_loc_num_y * 2)) 
+            # 设置日期格式
+            ax.xaxis.set_major_formatter(DateFormatter('%Y%m%d'))
+            # 设置label及其位置
+            ax.legend(bbox_to_anchor = (0., 1.0, 1., .102), loc=3, ncol=2, mode="expand")
+
+        # 显示图例
+        fig.autofmt_xdate()
+        fig.suptitle('%d days Trend Plot - %s' % (len(date_list), title), x = 0.5, y = 0.08, color = 'r')
+        today_date = date_list[-1]
+        img_file = '%s/%s_trend_%s.png' % (img_dir, title, today_date)
+        plt.savefig(img_file)
+        return img_file
