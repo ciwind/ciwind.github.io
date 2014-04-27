@@ -1,0 +1,4 @@
+<link href="{{ BASE_PATH }}/assets/themes/google-code-prettify/skins/sons-of-obsidian.css" rel="stylesheet" type="text/css" meida="all"/>
+<link href='{{ BASE_PATH }}/assets/fonts/source-code-pro.css' rel='stylesheet' type='text/css'/>
+<link href='{{ BASE_PATH }}/assets/css/common/code.css' rel='stylesheet' type='text/css'/>
+

@@ -1,0 +1,4 @@
+<script type="text/javascript" src="{{ BASE_PATH }}/assets/themes/google-code-prettify/prettify.js"></script>
+<script type="text/javascript">
+  window.prettyPrint && window.prettyPrint();
+</script>

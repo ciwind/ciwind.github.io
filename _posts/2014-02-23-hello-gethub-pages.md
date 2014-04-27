@@ -54,6 +54,30 @@ GP最简单的用法如其[官网介绍](http://pages.github.com/)，用户可�
 * 中文乱码问题 Liquid Exception: invalid byte sequence in GBK in 网上很多帖子的解决方案是改代码convertible.rb，个人觉得这么做很不雅，更合理的方法是：
 
     修改配置文件_config.yml，添加 `encoding: utf-8`
+####代码高亮插件
+  * 可以使用[google-code-prettify](https://code.google.com/p/google-code-prettify/)实现代码高亮。将代码下载到本地，挑选中意的[样式](http://google-code-prettify.googlecode.com/svn/trunk/styles/index.html)放在插件的skins目录下。
+  * 在代码中引用js和css文件。
+
+css
+
+<pre class="code prettyprint linenums">
+&lt;link href="{{ BASE_PATH }}/assets/themes/google-code-prettify/skins/sons-of-obsidian.css" rel="stylesheet" type="text/css" meida="all"/>;
+&lt;link href='{{ BASE_PATH }}/assets/fonts/source-code-pro.css' rel='stylesheet' type='text/css'/>
+&lt;link href='{{ BASE_PATH }}/assets/css/common/code.css' rel='stylesheet' type='text/css'/>
+</pre>
+
+js
+
+<pre class="code prettyprint linenums">
+&lt;script type="text/javascript" src="{{ BASE_PATH }}/assets/themes/google-code-prettify/prettify.js">&lt;/script>
+&lt;script type="text/javascript">
+  window.prettyPrint &amp;&amp; window.prettyPrint();
+&lt;/script>
+</pre>
+
+  * 将代码包含在标签里：`<pre class="prettyprint linenums"></pre>`
+  * 被包含的代码若包含`& <`需要用`&amp; &lt;`替换
+
 #### 个人碰到的悬而未解的问题
 * rake post title="中文" 导致出错
 
