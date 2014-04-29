@@ -1,7 +1,7 @@
 ---
 layout: page
-title: 呵呵
-tagline: 终于倒腾出来了，泪流满面%>_<%
+title: Jaf's Backyard
+tagline: 
 ---
 {% include JB/setup %}
     
