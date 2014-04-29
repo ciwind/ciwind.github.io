@@ -2,7 +2,7 @@
 layout: post
 title: "Using jsPlumb_Liviz to implement a drawing tool"
 description: "使用jsPlumb和Liviz打造一个js绘图工具"
-category: geek
+category: javascript
 tags: [js, jsPlumb, Liviz, Flowchart]
 ---
 {% include JB/setup %}

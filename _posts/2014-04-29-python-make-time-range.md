@@ -2,7 +2,7 @@
 layout: post
 title: "Python, make time range"
 description: "构造一个时间序列"
-category: 
+category: python
 tags: [python, time, datetime, range]
 ---
 {% include JB/setup %}

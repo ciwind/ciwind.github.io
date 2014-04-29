@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Hello, GitHub Pages
-category : geek
+category : others
 tagline: "oo"
 tags : [github, jekyll, jekyll-bootstrap]
 ---

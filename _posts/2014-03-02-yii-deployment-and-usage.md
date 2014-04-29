@@ -2,7 +2,7 @@
 layout: post
 title: "Yii, Deployment and Usage"
 description: "RedHat环境下，yii框架的部署和使用"
-category: geek
+category: yii
 tags: [php, yii]
 ---
 {% include JB/setup %}

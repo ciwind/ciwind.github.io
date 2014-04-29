@@ -2,7 +2,7 @@
 layout: post
 title: "Yii, export csv file"
 description: "csv文件导出"
-category: 
+category: yii
 tags: [yii, csv]
 ---
 {% include JB/setup %}
