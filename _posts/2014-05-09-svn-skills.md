@@ -12,5 +12,5 @@ tags: [svn]
 * 在脚本里自动获取svn数据，不需要输入密码
 
 <pre class="code prettyprint linenums">
-    svn cat http://x.xx.com/somefile > localfile --username username --password password --no-auth-cache
+svn cat http://x.xx.com/somefile > localfile --username username --password password --no-auth-cache
 </pre>

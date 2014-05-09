@@ -19,5 +19,54 @@ tags: [mysql]
 
 若还是无法启动，查看mysql数据目录下是否有`mysql-bin.*`文件，若无需备份、回滚，删除之，重试之
 
+* mysql缓存设置，编辑`/var/my.cnf`
+
+添加以下配置：
+<pre class="code prettyprint linenums">
+query_cache_size = 268435456
+query_cache_type = 1
+query_cache_limit = 1048576
+</pre>
+
+查看cache占用情况：
+<pre class="code prettyprint linenums">
+show status like 'Qca%';
+show status like 'Com_sel%';
+</pre>
+
+* 获取表大小、行数
+
+<pre class="code prettyprint linenums">
+SELECT 
+    table_schema,
+    table_name, 
+    table_rows, 
+    ROUND((data_length+index_length)/1024/1024) AS total_mb,  
+    ROUND(data_length/1024/1024) AS data_mb,  
+    ROUND(index_length/1024/1024) AS index_mb  
+FROM INFORMATION_SCHEMA.TABLES 
+WHERE TABLE_SCHEMA='testdb';
+</pre>
+
+* 添加用户、授权
+
+<pre class="code prettyprint linenums">
+CREATE USER 'myuser'@'localhost' IDENTIFIED BY 'mypass';
+grant select on dbname.tbname to username@localhost;
+flush privileges;
+</pre>
+
+* 批量改变存储引擎
+
+<pre class="code prettyprint linenums">
+select 
+    concat('alter table ', table_name, ' ENGINE=InnoDB') 
+from information_schema.tables 
+where table_schema="db_test" and ENGINE="MyISAM";
+</pre>
+
+
+
+
 
 
