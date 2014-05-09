@@ -65,6 +65,23 @@ from information_schema.tables
 where table_schema="db_test" and ENGINE="MyISAM";
 </pre>
 
+* 分partition
+
+具体参照[mysql分区类型](https://dev.mysql.com/doc/refman/5.5/en/partitioning-types.html)。
+使用hash方法分区，其参数必须为非负整数。
+<pre class="code prettyprint linenums">
+CREATE TABLE `table_name` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `time` datetime NOT NULL,
+  `field` varchar(256) DEFAULT '',
+  -- 使用hash分区需要将该字段引入主键
+  PRIMARY KEY (`id`,`time`),
+  KEY `filed_time` (`time`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+-- 按天分区
+alter table table_name partition by hash(dayofyear(time));
+</pre>
+
 
 
 
